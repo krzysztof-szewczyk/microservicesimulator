@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: data-api
+  profiles:
+    active:
+      - localhost
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    com.szewczyk.mgr: DEBUG
+
+management:
+  endpoint:
+    health:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 8080

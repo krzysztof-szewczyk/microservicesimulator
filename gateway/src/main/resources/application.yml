@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active:
+      - retry
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: false
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+
+data-api:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 1000
+    NFLoadBalancerPingClassName: com.netflix.loadbalancer.PingUrl
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.AvailabilityFilteringRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+niws:
+  loadbalancer:
+    availabilityFilteringRule:
+      filterCircuitTripped: false
+
+logging:
+  level:
+    com.netflix.loadbalancer: OFF
+    com.szewczyk.mgr: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

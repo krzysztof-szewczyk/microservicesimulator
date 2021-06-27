@@ -1,0 +1,8 @@
+version: "3.5"
+
+networks:
+  net:
+    name: custom-network
+
+# run with:
+# docker-compose -f docker-compose-network.yml up -d

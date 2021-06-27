@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  my-prometheus:
+    build: ./metrics/prometheus/.
+    image: "my-prometheus:latest"
+    privileged: true
+    ports:
+      - 9090:9090
+    command: --web.enable-admin-api --config.file=/etc/prometheus/prometheus.yml
+    networks:
+      - metrics-network
+
+  my-grafana:
+    build: ./metrics/grafana/.
+    ports:
+      - 3000:3000
+    depends_on:
+      - my-prometheus
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-service:8761/eureka/
+    networks:
+      - metrics-network
+
+networks:
+  metrics-network:
+    external: true
+    name: custom-network
+#
+#volumes:
+#  prometheus-data:
+
+# run with:
+# docker-compose -f docker-compose-metrics.yml up -d
+#  curl -X POST -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]={job="gateway-actuator"}'
+#  curl -X POST -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]={job="data-api-actuator"}'

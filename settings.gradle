@@ -1,0 +1,6 @@
+rootProject.name = 'microservicesimulator'
+
+include 'data-api'
+include 'data-api-stable'
+include 'discovery-service'
+include 'gateway'

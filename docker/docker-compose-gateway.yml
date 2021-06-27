@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  gateway:
+    build: ../gateway/.
+    image: "gateway:latest"
+    ports:
+      - 8000:8000
+    environment:
+      - eureka.client.service-url.defaultZone=http://discovery-service:8761/eureka/
+    networks:
+      - gateway-network
+
+networks:
+  gateway-network:
+    external: true
+    name: custom-network
+
+# run with:
+# docker-compose -f docker-compose-gateway.yml up -d

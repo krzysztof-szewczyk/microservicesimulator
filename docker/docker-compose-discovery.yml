@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+  discovery-service:
+    build: ../discovery-service/.
+    image: "discovery:latest"
+    ports:
+      - 8761:8761
+    networks:
+      - discovery-network
+
+networks:
+  discovery-network:
+    external: true
+    name: custom-network
+
+# run with:
+# docker-compose -f docker-compose-discovery.yml up -d

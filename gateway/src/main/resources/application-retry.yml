@@ -1,0 +1,61 @@
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+
+#resilience4j.circuitbreaker:
+#  instances:
+#    dataApiService:
+#      failureRateThreshold: 10
+#      waitDurationInOpenState: 10s
+#      minimumNumberOfCalls: 10
+#      registerHealthIndicator: true
+#      slidingWindowSize: 100
+#      permittedNumberOfCallsInHalfOpenState: 3
+#      slidingWindowType: TIME_BASED
+#      minimumNumberOfCalls: 20
+#      waitDurationInOpenState: 50s
+#      eventConsumerBufferSize: 10
+#      recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+
+resilience4j.retry:
+  instances:
+    data-api-service:
+      max-retry-attempts: 1
+      wait-duration: 0
+
+#      enableExponentialBackoff: true
+#      exponentialBackoffMultiplier: 2
+#      retryExceptions:
+#        - org.springframework.web.client.HttpServerErrorException
+#        - java.io.IOException
+#      ignoreExceptions:
+#        - io.github.robwin.exception.BusinessException
+#
+#resilience4j.bulkhead:
+#  instances:
+#    dataApiService:
+#      maxConcurrentCalls: 10
+#      maxWaitDuration: 10ms
+#
+#resilience4j.thread-pool-bulkhead:
+#  instances:
+#    dataApiService:
+#      maxThreadPoolSize: 1
+#      coreThreadPoolSize: 1
+#      queueCapacity: 1
+#
+#resilience4j.ratelimiter:
+#  instances:
+#    dataApiService:
+#      limitForPeriod: 10
+#      limitRefreshPeriod: 1s
+#      timeoutDuration: 0
+#      registerHealthIndicator: true
+#      eventConsumerBufferSize: 100
+#
+resilience4j.timelimiter:
+  instances:
+    dataApiService:
+      timeoutDuration: 1000
+      cancelRunningFuture: false

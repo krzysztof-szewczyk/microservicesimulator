@@ -1,0 +1,38 @@
+HELP.md
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+
+### IntelliJ IDEA ###
+.idea
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.classpath
+.class
+client/src/main/resources/application-localhost.yml
+
+# Gradle
+.idea/
+gradle/
+.gradle/
+
+bez
+client/src/main/resources/temp/
+
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+gradlew.bat
+gradlew
+
+#project
+**/pom.xml

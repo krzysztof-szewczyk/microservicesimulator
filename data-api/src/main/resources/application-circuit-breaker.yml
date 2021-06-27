@@ -1,0 +1,59 @@
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      failure-rate-threshold: 10
+      slow-call-rate-threshold: 10
+      slow-call-duration-threshold: 2000
+      permitted-number-of-calls-in-half-open-state: 5
+      max-wait-duration-in-half-open-state: 100s
+      sliding-window-type: COUNT_BASED
+      sliding-window-size: 24
+      minimum-number-of-calls: 12
+      wait-duration-in-open-state: 100s
+#      automaticTransitionFromOpenToHalfOpenEnabled: false
+#      recordExceptions:
+#      ignoreExceptions:
+#      recordException:
+#      ignoreException:
+##
+#resilience4j.bulkhead:
+#  configs:
+#    default:
+#      maxConcurrentCalls: 10
+#      maxWaitDuration: 10ms
+#
+#resilience4j.thread-pool-bulkhead:
+#  configs:
+#    default:
+#      maxThreadPoolSize:
+#      coreThreadPoolSize:
+#      queueCapacity:
+#      keepAliveDuration:
+#
+#resilience4j.ratelimiter:
+#  configs:
+#    default:
+#      timeoutDuration:
+#      limitRefreshPeriod:
+#      limitForPeriod:
+#
+#resilience4j.retry:
+#  configs:
+#    default:
+#      maxAttempts:
+#      waitDuration:
+#      intervalFunction:
+#      retryOnResultPredicate:
+#      retryOnExceptionPredicate:
+#      retryExceptions:
+#      ignoreExceptions:
+
+#resilience4j.timelimiter:
+#  configs:
+#    default:
+

@@ -1,0 +1,32 @@
+chaos:
+  monkey:
+    assaults:
+# depends on request
+      level: 1
+      latency-range-start: 2000
+      latency-range-end: 2500
+      latency-active: true
+      exceptions-active: true
+      exception:
+          type: java.lang.IllegalStateException
+          arguments:
+            -
+              class-name: java.lang.String
+              value: Instance of ${spring.application.name} on ${server.port} port is not able to respond
+# depends on scheduler
+      kill-application-active: false
+      memory-active: false
+      memory-milliseconds-hold-filled-memory: 20000
+      memory-milliseconds-wait-next-increase: 1000
+      memory-fill-increment-fraction: 1.0
+      memory-fill-target-fraction: 1.0
+#      runtimeAssaultCronExpression: "* * * * * ?"
+
+#      watchedCustomServices:
+#       - MainService
+    enabled: true
+    watcher:
+      controller: false
+      restController: false
+      service: true
+      repository: false
