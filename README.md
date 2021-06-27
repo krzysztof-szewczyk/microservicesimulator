@@ -1,29 +1,8 @@
-# README #
+## Simplified block schema
+![image](https://user-images.githubusercontent.com/42994172/123555390-c2937d00-d785-11eb-915f-4ee06e6ff76e.png)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## Block schema
+![image](https://user-images.githubusercontent.com/42994172/123555416-e5259600-d785-11eb-9276-4c71fc8465fa.png)
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+## Microservice architecture
+![image](https://user-images.githubusercontent.com/42994172/123555374-adb6e980-d785-11eb-9bd1-5f3ccb2929de.png)
